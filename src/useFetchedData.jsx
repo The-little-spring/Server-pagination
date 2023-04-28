@@ -24,7 +24,7 @@ const useFetchedData = (sieveModel) => {
 
   useEffect(() => {
     fetchData();
-  }, [sieveModel.activePage]);
+  }, [sieveModel.page]);
 
   return [isLoading, programmers];
 };

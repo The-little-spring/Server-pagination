@@ -6,8 +6,8 @@ import Pagination from "./Components/pagination";
 
 const pageSize = 3;
 function App() {
-  const [activePage, setActivePage] = useState(1);
-  const [isLoading, programmers] = useFetchedData({ activePage, pageSize });
+  const [page, setPage] = useState(1);
+  const [isLoading, programmers] = useFetchedData({ page, pageSize });
 
   return (
     <div className="container">
@@ -30,8 +30,8 @@ function App() {
           <div className="row">
             <Pagination
               pages={Math.ceil(programmers.totalRecords / pageSize)}
-              setActivePage={setActivePage}
-              activePage={activePage}
+              setPage={setPage}
+              page={page}
             />
           </div>
         </>

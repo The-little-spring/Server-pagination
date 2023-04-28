@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import _ from "lodash";
 
-const Pagination = ({ pages, setActivePage, activePage }) => {
+const Pagination = ({ pages, setPage, page }) => {
   const prevPage = () => {
-    setActivePage((oldPage) => {
+    setPage((oldPage) => {
       let prevPage = oldPage - 1;
       if (prevPage < 1) {
         prevPage = pages;
@@ -13,7 +13,7 @@ const Pagination = ({ pages, setActivePage, activePage }) => {
   };
 
   const nextPage = () => {
-    setActivePage((oldPage) => {
+    setPage((oldPage) => {
       let prevPage = oldPage + 1;
       if (prevPage > pages) {
         prevPage = 1;
@@ -33,8 +33,8 @@ const Pagination = ({ pages, setActivePage, activePage }) => {
         {_.times(pages, (index) => (
           <li
             key={`pagination-` + index}
-            className={`page-item ${index + 1 === activePage ? "active" : ""}`}
-            onClick={() => setActivePage(index + 1)}
+            className={`page-item ${index + 1 === page ? "active" : ""}`}
+            onClick={() => setPage(index + 1)}
           >
             <a className="page-link" href="#">
               {index + 1}
@@ -53,8 +53,8 @@ const Pagination = ({ pages, setActivePage, activePage }) => {
 
 Pagination.propTypes = {
   pages: PropTypes.number.isRequired,
-  setActivePage: PropTypes.func.isRequired,
-  activePage: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
 };
 
 export default Pagination;
